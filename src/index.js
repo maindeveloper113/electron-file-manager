@@ -5,13 +5,13 @@ import { Provider } from 'react-redux';
 
 import store from './reducers';
 
-import FileExplorer from './containers/FileExplorer'
+import Main from './components/Main'
 
 ReactDOM.render(
 	<Provider store={store}>
 		<Router>
 			<div className="app">
-				<Route path="" component={FileExplorer} />
+				<Route path="" component={Main} />
 			</div>
 		</Router>
 	</Provider>,

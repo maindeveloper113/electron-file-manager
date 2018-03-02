@@ -16,9 +16,11 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/gobankhust/electron-explorer#readme",
   "devDependencies": {
+    "css-loader": "^0.28.10",
     "electron": "^1.7.11",
     "electron-packager": "^11.0.1",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "style-loader": "^0.20.2"
   },
   "dependencies": {
     "babel-core": "^6.24.0",
