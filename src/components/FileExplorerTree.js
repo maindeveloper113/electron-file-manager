@@ -14,14 +14,14 @@ class FileExplorerTree extends Component {
 		this.clickedPath = null;
 	}
 
-	updateCurrentPath(folder) {
-		!folder.isFile && this.props.updateCurrentPath(`${ROOT_FOLDER}${folder.title}/`);
+	handleSelectPath(folder) {
+		!folder.isFile && this.props.handleSelectPath(`${ROOT_FOLDER}${folder.title}/`);
 	}
 
 	renderFolders() {
 		return _.map(this.props.treeData, folder => {
 			return <a className="collection-item avatar root-item"
-								onClick={() => {this.updateCurrentPath(folder)}}
+								onClick={() => {this.handleSelectPath(folder)}}
 								key={folder.title}>
 				<i className="material-icons circle light-green darken-2">{folder.isFile ? 'insert_drive_file' : 'folder'}</i>
 				{folder.title}</a>

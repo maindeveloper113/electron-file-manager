@@ -9,31 +9,30 @@ import FileExplorerTree from '../components/FileExplorerTree';
 class FileExplorer extends Component {
 	constructor(props) {
 		super(props);
-		this.updateCurrentPath = this.updateCurrentPath.bind(this);
+		
 
 		this.state = {
-			currentPath: ROOT_FOLDER
+			
 		};
+		this.handleSelectPath = this.handleSelectPath.bind(this);
 	}
 
 	componentDidMount() {
 		this.props.mainLevelDataListenerOn();
 		this.props.selectedLevelDataListenerOn();
-		this.props.mainLevelDataRequest(this.state.currentPath);
+		this.props.mainLevelDataRequest(ROOT_FOLDER);
 	}
 
-	updateCurrentPath(newPath) {
-		this.setState({
-			currentPath: newPath
-		});
-		this.props.selectedLevelDataRequest(newPath);
+	handleSelectPath(selectedPath) {
+		this.props.selectedLevelDataRequest(selectedPath);
 	}
 
 	render() {
+		console.log('-----', this.props.selectedFolderData)
 		return (
 			<div className="file-explorer">
 				<FileExplorerTree
-					updateCurrentPath={this.updateCurrentPath}
+					handleSelectPath={this.handleSelectPath}
 					treeData={this.props.mainFolderData.folders} />
 			</div>
 		);

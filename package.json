@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "electron": "electron .",
-    "build"  : "electron-packager ./src app --platform=win32"
+    "build": "electron-packager ./src app --platform=win32"
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,7 @@
     "react-redux": "^5.0.6",
     "react-router": "^4.0.0",
     "react-router-dom": "^4.0.0",
+    "react-table": "^6.8.0",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
     "webpack": "^2.3.2",
