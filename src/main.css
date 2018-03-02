@@ -1,0 +1,55 @@
+.app {
+    padding: 10px;
+}
+
+.root-item {
+    cursor: pointer;
+}
+
+.file-explorer .collection .collection-item.avatar {
+    min-height: 60px;
+}
+
+.file-explorer .collection a.collection-item {
+    display: flex;
+    align-items: center;
+}
+
+.file-explorer__navigation {
+    display: flex;
+    justify-content: space-between;
+}
+
+.file-explorer__navigation > div {
+    display: flex;
+}
+
+.back-btn {
+    margin-right: 10px;
+    display: flex;
+}
+
+.breadcrumb-item {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 0 10px;
+}
+
+.main-wrapper {
+    display: flex;
+}
+
+.preloader-wrapper {
+    margin-right: 15px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 100;
+}
+
+.paste-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 100;
+}
