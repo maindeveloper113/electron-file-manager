@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import { ROOT_FOLDER } from '../constants';
 
-import FileExplorerTree from './FileExplorerTree';
+import FolderList from './FolderList';
 import FileList from './FilesList';
 import FilesList from './FilesList';
 
@@ -43,9 +43,10 @@ class Main extends Component {
 
 		return (
 			<div className="file-explorer">
+				<h2>SIMS Offline Sync</h2>
 				<div className="row"> 
 					<div className="col-md-3">
-						<FileExplorerTree
+						<FolderList
 							handleSelectPath={this.handleSelectPath}
 							treeData={this.props.mainFolderData.folders} 
 						/>
