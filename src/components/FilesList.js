@@ -13,7 +13,6 @@ class FilesList extends Component {
 			{
 				Header: 'Name',
 				accessor: 'title',
-				filterable: true,
 			},
 			{
 				Header: 'Date Modified',
@@ -34,12 +33,6 @@ class FilesList extends Component {
 				<ReactTable
 					columns={columns}
 					data={this.props.files}
-					defaultFilterMethod={(filter, row) => {
-						if (!row[filter.id]) return false;
-						return (
-							row[filter.id].toLowerCase().indexOf(filter.value.toLowerCase()) !== -1
-						);
-					}}
 				/>
 			</div>
 		);

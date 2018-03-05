@@ -5,6 +5,19 @@ const mime = require('mime-types');
 const _ = require('lodash');
 const diskinfo = require('diskinfo');
 
+
+// var windef = require('windows-registry').windef;
+
+// var Key = require('windows-registry').Key;
+// var key = new Key(windef.HKEY.HKEY_CLASSES_ROOT, '', windef.KEY_ACCESS.KEY_ALL_ACCESS);
+// //var key2 = key.openSubKey('.txt', windef.KEY_ACCESS.KEY_ALL_ACCESS);
+ 
+ 
+// console.log('------txt', key)
+
+// key.close();
+
+
 const { app, BrowserWindow, ipcMain } = electron;
 const lstat = promisify(fs.lstat);
 const root = 'root/';
@@ -22,8 +35,8 @@ diskinfo.getDrives((err, drives) => {
 app.on('ready', () => {
 
 	mainWindow = new BrowserWindow({
-		height: 600,
-		width: 800,
+		height: 800,
+		width: 1400,
 		webPreferences: {
 			backgroundThrottling: false
 		}
@@ -46,6 +59,16 @@ function getFiles(path, type, result){
 							stats,
 						};
 						result.push(obj);
+
+						// if (stats.isFile()) {
+						// 	// // console.log("------", path + file)
+						// 	const filePath = path + file;
+						// 	const pathwithoutroot1 = filePath.substr(root.length);
+
+						
+						// }
+
+
 						return;
 					}else{
 						return getFiles(path + file + '\\', type, result);

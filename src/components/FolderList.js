@@ -26,13 +26,12 @@ class FolderList extends Component {
 			{
 				Header: 'Folder Name',
 				accessor: 'title',
-				filterable: true,
 				Cell: ({ row }) => {
 					{
 						return(
 							<div>
 								{
-									this.state.selectedFolder === row._original ?
+									this.props.selectedPath === row._original.title + "/" ?
 									<img src="https://png.icons8.com/color/50/000000/opened-folder.png" style={{width: 30}}/> :
 									<img src="https://png.icons8.com/color/50/000000/folder-invoices.png" style={{width: 30}}/>
 								}
@@ -45,17 +44,12 @@ class FolderList extends Component {
 				}
 			}
 		];
+		
 		return (
 			<div>
 				<ReactTable
 					columns={columns}
 					data={this.props.treeData}
-					defaultFilterMethod={(filter, row) => {
-						if (!row[filter.id]) return false;
-						return (
-							row[filter.id].toLowerCase().indexOf(filter.value.toLowerCase()) !== -1
-						);
-					}}
 					getTrProps={(state, rowInfo, column) => ({
 						onClick: (e) => {
 							if (this.state.selectedFolder !== rowInfo.row) {
@@ -65,7 +59,7 @@ class FolderList extends Component {
 								this.props.handleSelectPath(`${ROOT_FOLDER}${rowInfo.row._original.title}/`);
 							}
 						},
-						style: rowInfo && JSON.stringify(this.state.selectedFolder) === JSON.stringify(rowInfo.row._original) ? styles.activeItem : null,
+						style: rowInfo && this.props.selectedPath && this.props.selectedPath === rowInfo.row._original.title + "/" ? styles.activeItem : null,
 					})}
 				/>
 			</div>
